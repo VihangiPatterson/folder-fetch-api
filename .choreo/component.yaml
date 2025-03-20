@@ -1,10 +1,9 @@
-schemaVersion: 1.1
-apiVersion: core.choreo.dev/v1beta1
-kind: ComponentConfig
-spec:
-  inbound:
-    - name: foldr fetch
-      port: 8080
-      type: REST  # Assuming the service is a REST service
-      networkVisibility: Public
-      context: /foldr-fetch  # You may specify the context path if needed
+
+schemaVersion: 1.0 
+ # Example endpoint configuration
+endpoints:
+- name: folder-fetch
+  schemaFilePath: docs/openapi.yaml
+  service:
+     port: 8000
+  type: REST
