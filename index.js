@@ -2,8 +2,18 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
 
+// Define the base path that Choreo uses (should match component.yaml)
+const basePath = '/folder-fetch-api/v1';
+
+// Middleware to remove the base path if present
+app.use((req, res, next) => {
+  if (req.url.startsWith(basePath)) {
+    req.url = req.url.slice(basePath.length) || '/';
+  }
+  next();
+});
+
 // GET /?username=<username>
-// Returns a folder list relevant to the provided username.
 app.get('/', (req, res) => {
   const username = req.query.username;
   let folderList = [];
@@ -25,7 +35,7 @@ app.get('/', (req, res) => {
     default:
       folderList = [];
   }
-  
+
   res.json(folderList);
 });
 
