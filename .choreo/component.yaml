@@ -1,20 +1,35 @@
+# +required The configuration file schema version
 schemaVersion: 1.1
 
+# +optional Incoming connection details for the component
 endpoints:
+  # +required Unique name for the endpoint.
   - name: folder-fetch-api
+    # +optional Display name for the endpoint.
     displayName: Folder Fetch API
+    # +required Service section has the user service endpoint details
     service:
-      basePath: /folder-fetch-api/v1.0
+      # +optional Context (base path) of the API that gets exposed via the endpoint.
+      basePath: /folder-fetch-api/v1
+      # +required Numeric port value that gets exposed via the endpoint
       port: 8080
+    # +required Type of traffic that the endpoint is accepting.
+    # Allowed values: REST, GraphQL, WS, GRPC, TCP, UDP.
     type: REST
-    networkVisibilities:
+    # +optional Network level visibilities of the endpoint.
+    # Accepted values: Project|Organization|Public (Default).
+    networkVisibilities: 
       - Public
       - Organization
+    # +optional Path to the schema definition file. Defaults to wild card route if not provided.
+    # The path should be relative to the repository root.
     schemaFilePath: docs/openapi.yaml
 
+# +optional Outgoing connection details for the component.
 dependencies:
   connectionReferences: []
 
+# +optional Defines runtime configurations
 configurations:
   env: []
   file: []
