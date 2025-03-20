@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
 
-// GET /folders?username=<username>
+// GET /?username=<username>
 // Returns a folder list relevant to the provided username.
-app.get('/folders', (req, res) => {
+app.get('/', (req, res) => {
   const username = req.query.username;
   let folderList = [];
 
