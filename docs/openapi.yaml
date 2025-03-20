@@ -5,8 +5,7 @@ info:
   contact: {}
   version: v1.0
 servers:
-  - url: http://localhost:8080
-    description: folder fetching
+  - url: https://choreoapis.dev/default/Folder-fetch/v1.0
 paths:
   /:
     get:
@@ -45,8 +44,8 @@ paths:
                   - "project E"
       security:
         - default: []
-      x-auth-type: Application & Application User
-      x-throttling-tier: Unlimited
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: "Unlimited"
       x-throttling-limit:
         requestCount: -1
         unit: MINUTE
@@ -59,20 +58,20 @@ components:
           authorizationUrl: https://test.com
           scopes: {}
 x-wso2-disable-security: false
-x-wso2-auth-header: Authorization
+x-wso2-auth-header: "Authorization"
 x-wso2-cors:
   corsConfigurationEnabled: false
   accessControlAllowOrigins:
     - "*"
   accessControlAllowCredentials: false
   accessControlAllowHeaders:
-    - authorization
-    - Access-Control-Allow-Origin
-    - Content-Type
-    - SOAPAction
-    - apikey
-    - API-Key
-    - testKey
+    - "authorization"
+    - "Access-Control-Allow-Origin"
+    - "Content-Type"
+    - "SOAPAction"
+    - "apikey"
+    - "API-Key"
+    - "testKey"
   accessControlAllowMethods:
     - GET
     - OPTIONS
