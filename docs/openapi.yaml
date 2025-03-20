@@ -1,16 +1,15 @@
 openapi: 3.0.1
 info:
-  title: Folder Fetch
-  description: Sample folder fetch API that returns a hard-coded mapping of usernames to folder lists.
-  contact: {}
-  version: v1.0
+  title: Folder Fetch API
+  description: A REST API that returns a hard-coded folder list based on the provided username.
+  version: "1.0"
 servers:
-  - url: http://localhost:8080
+  - url: https://<your-choreo-domain>/folder-fetch-api/v1.0
 paths:
   /:
     get:
-      summary: Get folder list
-      description: Returns a hard-coded mapping of usernames to folder lists.
+      summary: Get Folder List
+      description: Returns a folder list for the provided username. If no username is provided, returns an empty array.
       operationId: getFolderList
       parameters:
         - in: query
@@ -18,75 +17,14 @@ paths:
           required: false
           schema:
             type: string
-          description: The username to fetch folders for (optional).
+          description: The username for which to fetch the folder list.
       responses:
         '200':
-          description: A JSON object mapping usernames to an array of folder names.
+          description: A JSON array of folder names.
           content:
             application/json:
               schema:
-                type: object
-                additionalProperties:
-                  type: array
-                  items:
-                    type: string
-              example:
-                "rain@wso2.com":
-                  - "project A"
-                  - "project B"
-                "user2@wso2.com":
-                  - "project c"
-                  - "project A"
-                "alex@wso2.com":
-                  - "project D"
-                  - "project B"
-                "jimy@wso2.com":
-                  - "project E"
-      security:
-        - default: []
-      x-auth-type: "Application & Application User"
-      x-throttling-tier: "Unlimited"
-      x-throttling-limit:
-        requestCount: -1
-        unit: MINUTE
-components:
-  securitySchemes:
-    default:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: https://test.com
-          scopes: {}
-x-wso2-disable-security: false
-x-wso2-auth-header: "Authorization"
-x-wso2-cors:
-  corsConfigurationEnabled: false
-  accessControlAllowOrigins:
-    - "*"
-  accessControlAllowCredentials: false
-  accessControlAllowHeaders:
-    - "authorization"
-    - "Access-Control-Allow-Origin"
-    - "Content-Type"
-    - "SOAPAction"
-    - "apikey"
-    - "API-Key"
-    - "testKey"
-  accessControlAllowMethods:
-    - GET
-    - OPTIONS
-x-wso2-production-endpoints:
-  urls:
-    - https://samples.choreoapps.dev/folderfetch/cs
-  type: http
-x-wso2-sandbox-endpoints:
-  urls:
-    - https://samples.choreoapps.dev/folderfetch/cs
-  type: http
-x-wso2-basePath: /75b19bed-57d0-4181-a5bd-6c6657f1acc6/default/Folder-fetch/v1.0
-x-wso2-transports:
-  - http
-  - https
-x-wso2-response-cache:
-  enabled: false
-  cacheTimeoutInSeconds: 300
+                type: array
+                items:
+                  type: string
+              example: ["project A", "project B"]

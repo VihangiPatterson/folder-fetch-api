@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
     default:
       folderList = [];
   }
-
+  
   res.json(folderList);
 });
 
