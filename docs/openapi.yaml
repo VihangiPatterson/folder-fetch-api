@@ -5,7 +5,7 @@ info:
   contact: {}
   version: v1.0
 servers:
-  - url: https://75b19bed-57d0-4181-a5bd-6c6657f1acc6-dev.e1-us-east-azure.choreoapis.dev/default/folder-fetch-yr/v1.0
+  - url: http://localhost:8080
 paths:
   /:
     get:
@@ -77,13 +77,13 @@ x-wso2-cors:
     - OPTIONS
 x-wso2-production-endpoints:
   urls:
-    - https://75b19bed-57d0-4181-a5bd-6c6657f1acc6-dev.e1-us-east-azure.choreoapis.dev/default/folder-fetch-yr/v1.0
+    - https://samples.choreoapps.dev/folderfetch/cs
   type: http
 x-wso2-sandbox-endpoints:
   urls:
-    - https://75b19bed-57d0-4181-a5bd-6c6657f1acc6-dev.e1-us-east-azure.choreoapis.dev/default/folder-fetch-yr/v1.0
+    - https://samples.choreoapps.dev/folderfetch/cs
   type: http
-x-wso2-basePath: /75b19bed-57d0-4181-a5bd-6c6657f1acc6/default/folder-fetch-yr/v1.0
+x-wso2-basePath: /75b19bed-57d0-4181-a5bd-6c6657f1acc6/default/Folder-fetch/v1.0
 x-wso2-transports:
   - http
   - https
