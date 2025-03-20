@@ -1,0 +1,10 @@
+schemaVersion: 1.2
+apiVersion: core.choreo.dev/v1beta1
+kind: ComponentConfig
+spec:
+  inbound:
+    - name: foldr fetch
+      port: 8080
+      type: REST  # Assuming the service is a REST service
+      networkVisibility: Public
+      context: /foldr-fetch  # You may specify the context path if needed
