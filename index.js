@@ -21,16 +21,16 @@ app.get('/', (req, res) => {
   // Hard-coded folder mappings for each user.
   switch (username) {
     case 'rain@wso2.com':
-      folderList = ['project A', 'project B'];
+      folderList = ['projectA', 'projectB'];
       break;
     case 'user2@wso2.com':
-      folderList = ['project c', 'project A'];
+      folderList = ['projectC', 'projectA'];
       break;
     case 'alex@wso2.com':
-      folderList = ['project D', 'project B'];
+      folderList = ['projectD', 'projectB'];
       break;
     case 'jimy@wso2.com':
-      folderList = ['project E'];
+      folderList = ['projectE'];
       break;
     default:
       folderList = [];
